@@ -1,0 +1,63 @@
+// probleme 1
+
+ALGORITHM distinctElement
+VAR
+    tab1, tab2 : ARRAY_OF INTEGER[];
+    i, j, sum : INTEGER;
+    found: BOOLEAN
+BEGIN
+sum :=0
+    FOR i FROM 0 TO tab1.length-1 STEP 1  DO
+        found:= false,
+        FOR j FROM 0 TO tab2.length-1 STEP 1  DO
+            if(tab1[i]=tab2[j]) THEN
+            found = true
+            ELSE
+            sum=sum+tab1[i]
+            END_if
+        END_FOR
+
+    END_FOR
+    FOR j FROM 0 TO tab2.length-1 STEP 1  DO
+        found:= false,
+        FOR i FROM 0 TO tab1.length-1 STEP 1  DO
+            IF (tab2[j]=tab1[i]) THEN
+                found = true
+            ELSE
+                sum=sum+tab2[j]
+            END_IF
+        END_FOR
+    END_FOR
+ Write(sum)
+END
+
+
+// probleme 2
+
+ALGORITHM Dot product
+VAR
+    v1, v2:ARRAY_OF integer[][]
+    result :integer
+BEGIN
+    
+    PROCEDURE dot_product(v1, v2)
+    VAR
+        ps:FLOAT
+    BEGIN
+    IF (v1.length !== v2.length) THEN
+        Write("Error: Vectors are not of the same length")
+    END_IF
+  let ps = 0;
+  FOR i FROM 0 TO v1.length STEP 1  DO
+    ps =ps+(v1[i] * v2[i]);
+  END_FOR
+  return ps;
+    END
+ let result = dot_product(v1, v2);
+ IF (result !== 0) THEN
+    Write("Vecteurs non orthogonaux")
+ ELSE
+    Write("Vecteurs sont orthogonaux")
+ END_IF
+
+END
